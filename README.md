@@ -4,7 +4,7 @@ A MATLAB simulator for solid rocket motor (SRM) internal ballistics. It compares
 geometries and propellant formulations, integrates the coupled chamber-pressure /
 web-regression ODE with `ode45`, runs parametric trade studies, and validates output
 against reference thrust-curve data.
-![Internal ballistics dashboard — thrust, chamber pressure, web regression, and burn-rate phase portrait for the BATES/APCP reference design](docs/fig4.pdf)
+![Internal ballistics dashboard — thrust, chamber pressure, web regression, and burn-rate phase portrait for the BATES/APCP reference design](docs/fig4.png)
 
 > _Figure 4 — full internal ballistics dashboard. Regenerate with `SRM_SIMULATOR`._
 
@@ -28,6 +28,10 @@ against reference thrust-curve data.
   reports R², RMSE, and total-impulse error.
 
 The master script generates **8 figures** spanning all four phases in a single run.
+
+![Grain geometry comparison — BATES, star, and wagon-wheel cross-sections with burn area, propellant volume, and burn-profile classification](docs/fig1.png)
+
+> _Figure 1 — the three grain geometries and their burn profiles._
 
 ---
 
@@ -105,7 +109,9 @@ event stops integration once the grain burns out and pressure decays to ambient.
 6. Grain geometry trade study — impulse, pressure, Isp, burn duration
 7. Parametric sweep — how core diameter drives performance
 8. Validation — simulated vs reference thrust curve with residuals and R²
+![Grain geometry trade study — thrust and pressure overlays plus impulse, peak pressure, Isp, and burn-duration comparisons](docs/fig6.png)
 
+> _Figure 6 — grain geometry trade study across BATES, star, and wagon-wheel._
 ---
 
 ## Validation
