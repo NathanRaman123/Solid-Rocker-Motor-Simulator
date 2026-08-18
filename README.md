@@ -4,6 +4,9 @@ A MATLAB simulator for solid rocket motor (SRM) internal ballistics. It compares
 geometries and propellant formulations, integrates the coupled chamber-pressure /
 web-regression ODE with `ode45`, runs parametric trade studies, and validates output
 against reference thrust-curve data.
+![Internal ballistics dashboard — thrust, chamber pressure, web regression, and burn-rate phase portrait for the BATES/APCP reference design](docs/fig4.pdf)
+
+> _Figure 4 — full internal ballistics dashboard. Regenerate with `SRM_SIMULATOR`._
 
 ---
 
