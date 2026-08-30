@@ -1,5 +1,5 @@
 function grain = star_grain(Do, Ri, epsilon, N_pts, L, n_steps)
-% STAR_GRAIN  Parametric star (finocyl) grain geometry
+% STAR_GRAIN  Parametric star (6-point star) grain geometry
 %
 %   Models a star-shaped port cross-section that burns radially outward.
 %   Star grains are designed for near-neutral burn profiles — the fin
