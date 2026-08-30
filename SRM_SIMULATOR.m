@@ -7,14 +7,7 @@
 %    Phase 3 — Internal ballistics ODE (ode45)
 %    Phase 4 — Trade studies, parametric sweeps, validation
 %
-%  Prerequisites: All supporting .m files in the same folder as this script.
-%  Toolboxes:     Optimization Toolbox (fsolve). See bottom for no-toolbox fix.
 %
-%  Run time: ~15–45 seconds depending on machine.
-%  Figures:  8 figures produced, each in its own named window.
-%
-%  Usage:
-%    >> SRM_SIMULATOR
 % ─────────────────────────────────────────────────────────────────────────
 
 clear; clc; close all;
