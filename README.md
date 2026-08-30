@@ -117,11 +117,9 @@ event stops integration once the grain burns out and pressure decays to ambient.
 
 ## Validation
 
-The validation module parses standard RASP `.eng` thrust-curve files (the format used
-by AeroTech, Cesaroni, and the amateur rocketry community) and computes R², RMSE, peak-
-thrust error, and total-impulse error against the simulation.
+The validation module parses standard RASP .eng thrust-curve files (the format used by AeroTech, Cesaroni, and the amateur rocketry community) and computes R², RMSE, peak-thrust error, and total-impulse error against the simulation.
 
-Current reference comparisons demonstrate the validation framework and should not be interpreted as certified model-accuracy claims until motor geometry, propellant, and nozzle conditions are matched to a real certified motor.
+Current reference comparisons demonstrate the validation framework and should not be interpreted as certified model-accuracy claims until the motor geometry, propellant properties, and nozzle configuration are matched to a certified motor dataset.
 
 ![Validation — simulated thrust curve against the reference with residuals and error metrics](docs/fig8.png)
 
