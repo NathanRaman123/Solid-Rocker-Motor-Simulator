@@ -13,7 +13,7 @@ against reference thrust-curve data.
 
 ## What it does
 
-- **Three grain geometry engines** — BATES (cylindrical core), star/finocyl, and
+- **Three grain geometry engines** — BATES (cylindrical core), 6-point star, and
   wagon-wheel — each computing burn area `Ab(w)`, propellant volume `Vp(w)`, and web
   regression.
 - **Propellant thermochemistry database** — APCP (two blends), KNSB, KNSU, KNDX, with
