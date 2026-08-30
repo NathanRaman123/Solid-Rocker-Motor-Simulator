@@ -1,12 +1,11 @@
 %% phase1_run.m — Phase 1 Demo: Grain Geometry Engine
 %
 %  Run this script to exercise all three grain types and compare their
-%  burn profiles. No toolboxes required except Optimization Toolbox
+%  burn profiles. 
 %  (for fsolve in wagon_wheel.m — can substitute a manual bisection if needed).
 %
 %  Output: Figure with 2x2 panel comparing all three geometries.
 %
-%  Typical run time: < 1 second
 %
 %  After running, try modifying the parameters below and re-running
 %  to build intuition for how geometry drives burn profile.
