@@ -1,20 +1,35 @@
 function results = ballistics_ode(grain, prop, nozzle, varargin)
 % BALLISTICS_ODE  Internal ballistics ODE solver for solid rocket motors
 %
-%   Integrates the chamber pressure ODE using MATLAB's ode45 (RK4/5).
-%   The governing equation is a mass balance on the chamber gas:
+% Integrates the coupled chamber-pressure and web-regression ODEs
+% using MATLAB's ode45 (Dormand-Prince RK4/5).
 %
-%     dPc/dt = (rho_prop * Ab(w) * r(Pc) * cstar - Pc * At) * cstar / Vc(w)
+% Chamber pressure is obtained from a gas-mass balance:
 %
-%   where:
-%     Pc   = chamber pressure [Pa]
-%     w    = web regression [m]  (integrated from dw/dt = r)
-%     Ab   = burn area as function of web [m^2]
-%     r    = burn rate = a * Pc^n  [m/s]
-%     At   = throat area [m^2]
-%     Vc   = chamber free volume [m^3]
-%     cstar= characteristic velocity [m/s]
-%     rho  = propellant density [kg/m^3]
+%   mdot_gen = rho_prop * Ab(w) * r(Pc)
+%   mdot_out = Pc * At / cstar
+%
+% Assuming ideal chamber gas at constant flame temperature and
+% neglecting the chamber-volume dilation term, the pressure ODE is
+%
+%   dPc/dt = (R_gas * Tc / Vc(w)) * ...
+%            (rho_prop * Ab(w) * r(Pc) - Pc * At / cstar)
+%
+% Web regression evolves according to
+%
+%   dw/dt = r(Pc) = a * Pc^n
+%
+% where:
+% Pc     = chamber pressure [Pa]
+% w      = web regression [m]
+% Ab     = instantaneous burning area [m^2]
+% r      = propellant linear burn rate [m/s]
+% rho_prop = propellant density [kg/m^3]
+% At     = nozzle throat area [m^2]
+% Vc     = chamber free volume [m^3]
+% cstar  = characteristic velocity [m/s]
+% R_gas  = specific gas constant of combustion products [J/(kg*K)]
+% Tc     = chamber/flame temperature [K]
 %
 %   State vector: y = [Pc; w]
 %
@@ -84,7 +99,8 @@ function results = ballistics_ode(grain, prop, nozzle, varargin)
     else
         V_casing = ip.Results.V_casing;
     end
-    % Free volume as function of web
+    % Chamber free volume increases as propellant is consumed:
+    %   Vc(w) = V_casing - Vp(w)
     Vc_func = @(w) V_casing - Vp_interp(w);
 
     % ── ODE definition ────────────────────────────────────────────────
@@ -107,10 +123,9 @@ function results = ballistics_ode(grain, prop, nozzle, varargin)
         % Mass generation rate: mdot_gen = rho * Ab * r
         % Mass loss through nozzle: mdot_out = Pc * At / cstar
         % dPc/dt = cstar/Vc * (rho*Ab*r - Pc*At/cstar) * (R_gas*Tc/(gamma*cstar))
-        % Simplified quasi-steady form (ref: Sutton RPE ch.12):
-        dPc_dt = (prop.cstar / Vc_now) * ...
+        
+        dPc_dt = (nozzle.R_gas * nozzle.Tc / Vc_now) * ...
                  (prop.rho * Ab_now * r_now - Pc_now * nozzle.At / prop.cstar);
-
         % Web regression rate
         dw_dt = r_now;
 
