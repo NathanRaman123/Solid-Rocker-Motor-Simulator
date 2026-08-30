@@ -121,6 +121,8 @@ The validation module parses standard RASP `.eng` thrust-curve files (the format
 by AeroTech, Cesaroni, and the amateur rocketry community) and computes R², RMSE, peak-
 thrust error, and total-impulse error against the simulation.
 
+Current reference comparisons demonstrate the validation framework and should not be interpreted as certified model-accuracy claims until motor geometry, propellant, and nozzle conditions are matched to a real certified motor.
+
 ![Validation — simulated thrust curve against the reference with residuals and error metrics](docs/fig8.png)
 
 > _Figure 8 — validation against a reference thrust curve._
