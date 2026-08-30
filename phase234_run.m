@@ -6,10 +6,7 @@
 %    Phase 4: Trade studies, validation, results comparison
 %
 %  Prerequisites: All .m files from Phase 1 and this phase in MATLAB path.
-%  Toolboxes: Optimization Toolbox (for fsolve). If unavailable, see note
-%             at bottom of this file for a fsolve substitute.
 %
-%  Run time: ~10–30 seconds depending on sweep size.
 % ─────────────────────────────────────────────────────────────────────────
 
 clear; clc; close all;
