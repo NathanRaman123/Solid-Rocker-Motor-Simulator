@@ -38,8 +38,7 @@ The master script generates **8 figures** spanning all four phases in a single r
 
 ## Quick start
 
-Requires MATLAB (developed on R2023+). No toolboxes required — the nozzle exit-Mach
-solve uses a built-in bisection loop rather than `fsolve`.
+Requires MATLAB; wagon-wheel geometry currently uses Optimization Toolbox (fsolve).
 
 ```matlab
 % From the project folder:
