@@ -1,4 +1,4 @@
-# Solid-Rocker-Motor-Simulator
+# Solid-Rocket-Motor-Simulator
 
 A MATLAB simulator for solid rocket motor (SRM) internal ballistics. It compares grain
 geometries and propellant formulations, integrates the coupled chamber-pressure /
